@@ -21,7 +21,7 @@ foreach($dataset as $item){
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-<title>MASTERNODE CHECK</title>
+<title>MASTERNODE STATUS</title>
 </head>
 <body>
 <!-- TRITTIUM LOGO BASE 64 -->
