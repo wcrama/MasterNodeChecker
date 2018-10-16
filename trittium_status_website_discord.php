@@ -11,12 +11,12 @@ foreach($dataset as $item){
 			$status = '<br><b><font color="green">Master Node is ONLINE !</font></b>';
 		} else {
 // Send Discord Message to Channel
-			$curl = curl_init("https://discordapp.com/api/webhooks/0000000000000/TH1S1S$AMPL3C0DE0FD!$C0RDW3bh0OkS");
-            curl_setopt($curl, CURLOPT_POST, 1);
-            curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode(array("content" => ":warning:  MN1 is OFFLINE  :warning:", "username" => "TRITTIUM MASTER NODE")));
+	    		$curl = curl_init("https://discordapp.com/api/webhooks/0000000000000/TH1S1S$AMPL3C0DE0FD!$C0RDW3bh0OkS");
+            		curl_setopt($curl, CURLOPT_POST, 1);
+            		curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode(array("content" => ":warning:  MN1 is OFFLINE  :warning:", "username" => "TRITTIUM MASTER NODE")));
 
-            echo curl_exec($curl);
-            $status = '<br><b><font color="red">Master Node is OFFLINE !</font></b>';
+            		echo curl_exec($curl);
+            		$status = '<br><b><font color="red">Master Node is OFFLINE !</font></b>';
 		}
 	}
 }
