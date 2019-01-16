@@ -1,0 +1,35 @@
+<html>
+<head>
+</head>
+<body>
+    
+<!-- cURL Method -->
+<?php
+
+$url = 'example.com';
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$data = curl_exec($ch);
+$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+curl_close($ch);
+if($httpcode>=200 && $httpcode<300){
+    
+  echo 'ONLINE'." ".$httpcode." "."<br>";
+  
+} else {
+    echo 'OFFLINE'." ".$httpcode."<br>";
+    // Send Discord Message to Channel
+    $curl =curl_init("https://discordapp.com/api/webhooks/0000000000000/TH1S1S$AMPL3C0DE0FD!$C0RDW3bh0OkS");
+    curl_setopt($curl, CURLOPT_POST, 1);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode(array("content" => ":warning:  MN01 is OFFLINE  :warning:", "username" => "MASTERNODE01")));
+    echo curl_exec($curl);
+    $status = '<br><b><font color="red">MasterNode is OFFLINE !</font></b>';
+    echo 'OFFLINE'." ".$httpcode." ".$status."<br>";
+		}
+
+?>
+
+</body>
+</html>
