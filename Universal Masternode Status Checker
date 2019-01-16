@@ -15,9 +15,9 @@ $data = curl_exec($ch);
 $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 curl_close($ch);
 if($httpcode>=200 && $httpcode<300){
-    
-  echo 'ONLINE'." ".$httpcode." "."<br>";
-  
+
+    $status = '<br><b><font color="green">MasterNode is ONLINE !</font></b>';
+    echo 'ONLINE'." ".$httpcode." ".$status."<br>";
 } else {
     echo 'OFFLINE'." ".$httpcode."<br>";
     // Send Discord Message to Channel
