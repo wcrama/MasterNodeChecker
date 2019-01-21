@@ -2,7 +2,28 @@
 <head>
 </head>
 <body>
-    
+
+<!-- PING Method -->
+<?php
+
+$host = '12.34.56.78'; 		// FILL IN IP OF MASTERNODE
+$port = 9999; 			// FILL IN SPECIFIC PORT NUMBER OF MASTERNODE
+$waitTimeoutInSeconds = 1; 
+if($fp = fsockopen($host,$port,$errCode,$errStr,$waitTimeoutInSeconds)){   
+   echo '<br><b><font color="green">MasterNode is ONLINE !</font></b><br>';
+} else {
+    echo '<br><b><font color="red">MasterNode is OFFLINE !</font></b><br>';
+    // Send Discord Message to Channel
+    $curl =curl_init("https://discordapp.com/api/webhooks/0000000000000/TH1S1S$AMPL3C0DE0FD!$C0RDW3bh0OkS");
+    curl_setopt($curl, CURLOPT_POST, 1);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode(array("content" => ":warning:  MN01 is OFFLINE  :warning:", "username" => "MASTERNODE01")));
+    echo curl_exec($curl);
+    $status = '<br><b><font color="red">MasterNode is OFFLINE !</font></b>';
+    echo 'OFFLINE'." ".$httpcode." ".$status."<br>";
+		}
+fclose($fp);
+
+?>    
 <!-- cURL Method -->
 <?php
 
